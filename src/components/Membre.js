@@ -12,7 +12,12 @@ const Membre = ({nom, children, age}) => {
     
     return ( 
         <>
-            <h2>Membre  : {nom.toUpperCase()} - {age} ans</h2>
+            <h2
+                style={{ backgroundColor: age < 33 ? 'dodgerblue' : 'crimson', color: 'white'}}
+            >
+                Membre  : {nom.toUpperCase()} - {age} ans
+                
+            </h2>
             {children ? <p>{children}</p> : null}
         </>
      );

@@ -1,0 +1,9 @@
+button{
+    background-color: #bada55;
+    padding: 10px;
+    border: none;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* attention même s'il se charge seulement lors de l'appel du component, il va impacter le site*/

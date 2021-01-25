@@ -34,8 +34,20 @@ class App extends Component {
 
   }
 
+  handleChange = (event) =>{
+    const marauder = {...this.state.marauder}
+    const nom = event.target.value
+    marauder.membre1.nom = nom 
+    this.setState({marauder:marauder})
+  }
+
   render() { 
     const {title} = this.props
+    const liste = Object.keys(this.state.marauder).map(membre => {
+      return (
+        <Membre age={this.state.marauder[membre].age} nom={this.state.marauder[membre].nom}/>
+      )
+    })
     return(
       <Fragment>
       <div className="App">
@@ -43,6 +55,11 @@ class App extends Component {
         <h2>{title}</h2>
         <p>I solemnly swear that i am up to no good! </p>
       </div>
+      <div>test</div>
+      <input 
+      value={this.state.marauder.membre1.nom}
+      onChange={this.handleChange}
+      type="text"/>
       <Membre
         age={this.state.marauder.membre1.age}
         nom={this.state.marauder.membre1.nom}/>
@@ -61,6 +78,10 @@ class App extends Component {
           Je suis une merde
         </Membre>
        <Button vieillir={()=> this.handleClick(2)} />
+
+       <h1>Rendu avec boucle
+       </h1>
+          {liste}
       </Fragment>
    //   React.createElement('div', {className: 'App'}, React.createElement('h1',null,'React App'))
     )
