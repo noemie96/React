@@ -45,7 +45,7 @@ class App extends Component {
     const {title} = this.props
     const liste = Object.keys(this.state.marauder).map(membre => {
       return (
-        <Membre age={this.state.marauder[membre].age} nom={this.state.marauder[membre].nom}/>
+        <Membre key={membre} age={this.state.marauder[membre].age} nom={this.state.marauder[membre].nom}/>
       )
     })
     return(
