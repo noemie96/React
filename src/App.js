@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './App.css'
 import Membre from './components/Membre'
+import Button from './components/Button'
 
 const marauder = {
   membre1:{
@@ -26,9 +27,9 @@ class App extends Component {
     marauder : marauder 
   }
 
-  handleClick = () => {
+  handleClick = (nb) => {
     const marauder= {...this.state.marauder}//...permet de copier un state car on ne peut pas le modifier directement
-    marauder.membre1.age += 1
+    marauder.membre1.age += nb
     this.setState({marauder:marauder})
 
   }
@@ -59,8 +60,7 @@ class App extends Component {
           nom="Harry">
           Je suis une merde
         </Membre>
-        <button onClick={this.handleClick}>+1</button>
-        
+       <Button vieillir={()=> this.handleClick(2)} />
       </Fragment>
    //   React.createElement('div', {className: 'App'}, React.createElement('h1',null,'React App'))
     )
