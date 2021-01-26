@@ -8,7 +8,7 @@ import React from 'react'; // quand on n'indique rien sur le path, on fait ref Ã
 //        </>
 //     );
 //}
-const Membre = ({nom, children, age}) => {
+const Membre = ({nom, children, age, hideName, handleChange}) => {
     
     return ( 
         <>
@@ -16,8 +16,11 @@ const Membre = ({nom, children, age}) => {
                 style={{ backgroundColor: age < 33 ? 'dodgerblue' : 'crimson', color: 'white'}}
             >
                 Membre  : {nom.toUpperCase()} - {age} ans
-                
             </h2>
+            <input type="text" value={nom} onChange={handleChange} />
+            <button onClick={hideName}>X</button>
+
+
             {children ? <p>{children}</p> : null}
         </>
      );
