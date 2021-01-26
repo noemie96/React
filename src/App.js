@@ -24,7 +24,8 @@ const marauder = {
 
 class App extends Component {
   state = {
-    marauder : marauder 
+    marauder : marauder,
+    isShow: false
   }
 
   handleClick = (nb) => {
@@ -32,6 +33,11 @@ class App extends Component {
     marauder.membre1.age += nb
     this.setState({marauder:marauder})
 
+  }
+
+  handleShow = () =>{
+    const isShow = !this.state.isShow //retourne l'inverse (système de toggle)
+    this.setState({isShow})
   }
 
   handleChange = (event) =>{
@@ -75,7 +81,15 @@ class App extends Component {
         <Membre
           age="13"
           nom="Harry">
-          Je suis une merde
+            {/* on ne peut pas avoir de block {} à l'intérieur d'un autre block */}
+            {
+              this.state.isShow ? <strong>Mischief managed </strong> : null
+            }
+            <button onClick={this.handleShow}>
+              {
+                this.state.isShow ? 'Cacher' : 'Montrer'
+              }
+            </button>
         </Membre>
        <Button vieillir={()=> this.handleClick(2)} />
 
